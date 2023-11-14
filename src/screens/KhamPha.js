@@ -54,7 +54,7 @@ const data = [
     id: 10,
   },
 ]
-
+ 
 const data2 = [
   {
     image: require('../img/khampha/vu.png'),
