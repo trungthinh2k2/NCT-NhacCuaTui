@@ -54,7 +54,7 @@ const data = [
     id: 10,
   },
 ]
- 
+
 const data2 = [
   {
     image: require('../img/khampha/vu.png'),
@@ -106,6 +106,39 @@ const data2 = [
   },
 ]
 
+const data3 = [
+  {
+    image3: require('../img/khampha/tungquen.png'),
+    id3: 1,
+    title3: '1 Từng quen',
+    singer3: '- Wren Evans,Itsnk'
+  },
+  {
+    image3: require('../img/khampha/mdanniversary.png'),
+    id3: 2,
+    title3: '2 MD Anniversary',
+    singer3: '- CoolKid, YoungBan'
+  },
+  {
+    image3: require('../img/khampha/mamia.png'),
+    id3: 3,
+    title3: '3 Mamma Mia',
+    singer3: '- HIEUTHUHAI,HURRYKNG,MAN...'
+  },
+  {
+    image3: require('../img/khampha/quacauruocem.png'),
+    id3: 4,
+    title3: '4 Qua Cầu Rước Em',
+    singer3: '- Danhka'
+  },
+  {
+    image3: require('../img/khampha/lift.png'),
+    id3: 5,
+    title3: '5 Lift',
+    singer3: '- Binz'
+  },
+]
+
 const Item = ({ image1, image2, id }) => {
   return (
     <View style={styles.item}>
@@ -131,47 +164,82 @@ const Item2 = ({ image, id, title, singer }) => {
   )
 }
 
-const KhamPha = () => {
+const Item3 = ({ image3, id3, title3, singer3 }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image style={styles.search} source={require('../img/khampha/search.png')}></Image>
-        <TextInput style={styles.textInput} placeholder="Bạn muốn nghe gì ?" placeholderTextColor='gray'></TextInput>
-        <TouchableOpacity>
-          <Image style={styles.mic} source={require('../img/khampha/mic.png')}></Image>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.body}>
-        <ScrollView>
-          <FlatList
-            data={data}
-            horizontal={true}
-            renderItem={({ item }) => (
-              <Item image1={item.image1} image2={item.image2} id={item.id}></Item>
-            )}
-          />
-        </ScrollView>
-        <View style={styles.txt}>Made for Trần Quốc Thịnh</View>
-        <ScrollView>
-          <FlatList
-            data={data2}
-            horizontal={true}
-            renderItem={({ item }) => (
-              <Item2 image={item.image} id={item.id} title={item.title} singer={item.singer}></Item2>
-            )}
-          />
-        </ScrollView>
-        <View style={styles.rank}>
-          <Text style={styles.txtXepHang}>Bảng Xếp Hạng</Text>
-          <TouchableOpacity>
-            <Text style={styles.txtThem}>Thêm</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+    <View style={styles.item3}>
+      <TouchableOpacity>
+        <Image style={styles.img4} source={image3}></Image>
+      </TouchableOpacity>
+      <TouchableOpacity style={{flexDirection: 'column', marginBottom:20, marginLeft: 10}}>
+      <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black'}}>{title3}</Text>
+      <Text style={{ fontSize: 15, color: 'gray'}}>{singer3}</Text>
+      </TouchableOpacity>
     </View>
+
   )
 }
 
+const KhamPha = () => {
+  return (
+    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.header}>
+          <Image style={styles.search} source={require('../img/khampha/search.png')}></Image>
+          <TextInput style={styles.textInput} placeholder="Bạn muốn nghe gì ?" placeholderTextColor='gray'></TextInput>
+          <TouchableOpacity>
+            <Image style={styles.mic} source={require('../img/khampha/mic.png')}></Image>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.body}>
+          <ScrollView>
+            <FlatList
+              data={data}
+              horizontal={true}
+              renderItem={({ item }) => (
+                <Item image1={item.image1} image2={item.image2} id={item.id}></Item>
+              )}
+            />
+          </ScrollView>
+          <Text style={styles.txt}>Made for Trần Quốc Thịnh</Text>
+          <ScrollView>
+            <FlatList
+              data={data2}
+              horizontal={true}
+              renderItem={({ item }) => (
+                <Item2 image={item.image} id={item.id} title={item.title} singer={item.singer}></Item2>
+              )}
+            />
+          </ScrollView>
+          <View style={styles.rank}>
+            <Text style={styles.txtXepHang}>Bảng Xếp Hạng</Text>
+            <TouchableOpacity>
+              <Text style={styles.txtThem}>Thêm</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.trend}>
+            <View style={{ flexDirection: 'row' }}>
+              <TouchableOpacity style={{ flexDirection: 'row' }}>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Trending Music</Text>
+                <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 80 }} source={require('../img/khampha/play.png')}></Image>
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              data={data3}
+              renderItem={({ item }) => (
+                <Item3 image3={item.image3} id3={item.id3} title3={item.title3} singer3={item.singer3}></Item3>
+              )}
+            >
+            </FlatList>
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  )
+}
 export default KhamPha
 
 const styles = StyleSheet.create({
@@ -248,4 +316,24 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 130,
   },
+  trend: {
+    width: 310,
+    height: 330,
+    backgroundColor: '#f0ecec',
+    marginLeft: 10,
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  item3: {
+    marginLeft: 10,
+    flexDirection: 'row',
+  },
+  img4:
+  {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+    borderRadius: 5,
+  },
+
 })
