@@ -75,13 +75,13 @@ const data2 = [
     singer: 'Doja Cat.'
   },
   {
-    image: require('../img/khampha/khamphamoi.png'),
+    image: require('../img/khampha/chungtacuahientai.png'),
     id: 4,
-    title: 'Khám Phá Mới Mix',
-    singer: 'CM1X.'
+    title: 'Chúng Ta Của Hiện Tại',
+    singer: 'Sơn Tùng M-TP.'
   },
   {
-    image: require('../img/khampha/evans.png'),
+    image: require('../img/khampha/tungquen.png'),
     id: 5,
     title: 'Âm Nhạc Thịnh Hành',
     singer: 'Wren Evans.'
@@ -138,6 +138,38 @@ const data3 = [
     singer3: '- Binz'
   },
 ]
+const data4 = [
+  {
+    image3: require('../img/khampha/chungtacuahientai.png'),
+    id3: 1,
+    title3: '1 Chúng Ta Của Hiện Tại',
+    singer3: '- Sơn Tùng M-TP'
+  },
+  {
+    image3: require('../img/khampha/maunuocmat.png'),
+    id3: 2,
+    title3: '2 Màu Nước Mắt',
+    singer3: '- Nguyễn Trần Trung Quân'
+  },
+  {
+    image3: require('../img/khampha/canhdongyeuthuong.png'),
+    id3: 3,
+    title3: '3 Cánh Đồng Yêu Thương',
+    singer3: '- Trung Quân Idol'
+  },
+  {
+    image3: require('../img/khampha/buongdoitaynhaura.png'),
+    id3: 4,
+    title3: '4 Buông Đôi Tay Nhau Ra',
+    singer3: '- Sơn Tùng M-TP'
+  },
+  {
+    image3: require('../img/khampha/24h.png'),
+    id3: 5,
+    title3: '5 24H',
+    singer3: '- LyLy'
+  },
+]
 
 const Item = ({ image1, image2, id }) => {
   return (
@@ -170,13 +202,29 @@ const Item3 = ({ image3, id3, title3, singer3 }) => {
       <TouchableOpacity>
         <Image style={styles.img4} source={image3}></Image>
       </TouchableOpacity>
-      <TouchableOpacity style={{flexDirection: 'column', marginBottom:20, marginLeft: 10}}>
-      <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black'}}>{title3}</Text>
-      <Text style={{ fontSize: 15, color: 'gray'}}>{singer3}</Text>
+      <TouchableOpacity style={{ flexDirection: 'column', marginBottom: 20, marginLeft: 10 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>{title3}</Text>
+        <Text style={{ fontSize: 15, color: 'gray' }}>{singer3}</Text>
       </TouchableOpacity>
     </View>
 
   )
+}
+
+const Item4 = ({ image3, id3, title3, singer3 }) => {
+  return (
+    <View style={styles.item3}>
+      <TouchableOpacity>
+        <Image style={styles.img5} source={image3}></Image>
+      </TouchableOpacity>
+      <TouchableOpacity style={{ flexDirection: 'column', marginBottom: 20, marginLeft: 10 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>{title3}</Text>
+        <Text style={{ fontSize: 15, color: 'gray' }}>{singer3}</Text>
+      </TouchableOpacity>
+    </View>
+
+  )
+
 }
 
 const KhamPha = () => {
@@ -217,24 +265,110 @@ const KhamPha = () => {
               <Text style={styles.txtThem}>Thêm</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.trend}>
+          <ScrollView horizontal={true}>
             <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity style={{ flexDirection: 'row' }}>
-                <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Trending Music</Text>
-                <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 80 }} source={require('../img/khampha/play.png')}></Image>
-              </TouchableOpacity>
+
+              <View style={styles.trend}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Trending Music</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 80 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+                <FlatList
+                  data={data3}
+                  renderItem={({ item }) => (
+                    <Item3 image3={item.image3} id3={item.id3} title3={item.title3} singer3={item.singer3}></Item3>
+                  )}
+                >
+                </FlatList>
+              </View>
+
+              <View style={{ width: 310, height: 330, backgroundColor: '#f0ecec', marginLeft: 15, borderRadius: 10, marginTop: 20, }}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>V-Pop</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 170 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+                <FlatList
+                  data={data4}
+                  renderItem={({ item }) => (
+                    <Item3 image3={item.image3} id3={item.id3} title3={item.title3} singer3={item.singer3}></Item3>
+                  )}
+                >
+                </FlatList>
+              </View>
+
+              <View style={{ width: 310, height: 330, backgroundColor: '#f0ecec', marginLeft: 15, borderRadius: 10, marginTop: 20, }}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>K-Pop</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 170 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+
+              </View>
+
+              <View style={{ width: 310, height: 330, backgroundColor: '#f0ecec', marginLeft: 15, borderRadius: 10, marginTop: 20, }}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Youtube Trending</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 60 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={{ width: 310, height: 330, backgroundColor: '#f0ecec', marginLeft: 15, borderRadius: 10, marginTop: 20, }}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Rap Viet</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 150 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={{ width: 310, height: 330, backgroundColor: '#f0ecec', marginLeft: 15, borderRadius: 10, marginTop: 20, }}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Nhạc Tết</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 145 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={{ width: 310, height: 330, backgroundColor: '#f0ecec', marginLeft: 15, borderRadius: 10, marginTop: 20, }}>
+                <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginTop: 5, marginLeft: 10 }}>Remix Việt</Text>
+                    <Image style={{ width: 18, height: 18, resizeMode: 'contain', marginTop: 10, marginLeft: 10 }} source={require('../img/khampha/vector.png')}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginLeft: 130 }} source={require('../img/khampha/play.png')}></Image>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
             </View>
-            <FlatList
-              data={data3}
-              renderItem={({ item }) => (
-                <Item3 image3={item.image3} id3={item.id3} title3={item.title3} singer3={item.singer3}></Item3>
-              )}
-            >
-            </FlatList>
-          </View>
+          </ScrollView>
         </View>
       </ScrollView>
     </View>
@@ -335,5 +469,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     borderRadius: 5,
   },
-
+  img5:
+  {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+    borderRadius: 5,
+  },
 })
