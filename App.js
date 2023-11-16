@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,14 +15,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Login" component={Login} 
-          options={{
-          tabBarLabel: 'Login',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="live" color={color} size={26} />
-          ),                                                    
-        }}
-        />
         <Tab.Screen name="DanhChoBan" component={DanhChoBan} 
         options={{
           tabBarLabel: 'Dành cho bạn',
@@ -39,6 +31,15 @@ export default function App() {
           ),                                                    
         }}
         />
+        <Tab.Screen name="Login" component={Login} 
+          options={{
+          tabBarLabel: 'Live',
+          tabBarIcon: ({ focused }) => (
+            // <MaterialCommunityIcons name="live" color={color} size={26} />
+            <Image style={styles.icon_live} source={require('./src/img/live-streaming.png')} />
+          ),                                                    
+        }}
+        />
         <Tab.Screen name="CuaToi" component={CuaToi} 
         options={{
           tabBarLabel: 'Của Tui',
@@ -51,3 +52,10 @@ export default function App() {
     </NavigationContainer>
   );
 }
+const styles = StyleSheet.create({
+  icon_live: {
+    width: 50,
+    height: 30,
+    resizeMode: 'contain',
+  }
+})

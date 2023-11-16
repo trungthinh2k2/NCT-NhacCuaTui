@@ -1,21 +1,24 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Pressable } from 'react-native'
 import React, {useEffect, useState}  from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
 
 function DanhChoBan({navigation}){
-    
+
   return (
     <View style={styles.contain}>
         <View style={styles.header}>
             <Text style={{color:"#ffffff", fontSize: 16, fontWeight: 700, paddingLeft: 16,}}>Dành cho bạn</Text>
-            <TouchableOpacity >
+            <View>
+            <TouchableOpacity onPress={()=> navigation.navigate('Search')}>
                 <Image style={styles.icon_search} source={require('../img/danhchoban/icon_search.png')} />
             </TouchableOpacity>
+            </View>
+            
            
         </View>
         <View style={styles.body}>
-            <Text>DanhChoBan</Text>
+
         </View>
         <View style={styles.footer}>
             <View style={styles.infor_song}>
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 6,
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
         alignItems: 'center',
     },
     footer: {
@@ -98,8 +101,34 @@ const styles = StyleSheet.create({
     },
     process: {
         alignItems: 'center',
-    }
+    },
     // playBtn: {
     //     marginBottom: 30,
     // },
+    section: {
+        marginBottom: 12
+    },
+    sectionTitle: {
+        color: '#fff',
+        fontSize: 15,
+        fontWeight: "700"
+    },
+    itemContainer: {
+        padding: 8,
+        marginHorizontal: 6,
+        width: 168,
+        height: 200,
+        borderRadius: 4
+    },
+    itemImage: {
+        width: 152,
+        height: 152,
+        borderRadius: 4
+    },
+    itemTitle: {
+        color: '#fff',
+        fontSize: 16,
+        marginTop: 6
+    },
+
 })

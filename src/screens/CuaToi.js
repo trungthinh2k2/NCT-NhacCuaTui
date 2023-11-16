@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
+import Login from './Login'
 
-const CuaToi = () => {
+function CuaToi (){
   return (
     <View style={styles.container}>
-      <Text>CuaToi</Text>
+      <Login />
     </View>
   )
 }
@@ -14,7 +15,15 @@ export default CuaToi
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'green',
         alignItems: 'center',
-    }
+    },
+    header: { 
+      flex: 1,
+      backgroundColor: 'red',
+    },
+    body: {
+      flex: 6,
+      backgroundColor: 'blue',
+    },    
+
 })
