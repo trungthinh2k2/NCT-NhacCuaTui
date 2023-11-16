@@ -2,18 +2,24 @@ import * as React from 'react';
 import { Text, View, Image, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Login from './src/screens/Login';
 import DanhChoBan from './src/screens/DanhChoBan';
 import KhamPha from './src/screens/KhamPha';
 import CuaToi from './src/screens/CuaToi';
+import Search from './src/screens/Search';
 
 const Tab = createMaterialBottomTabNavigator();
 
+
 export default function App() {
   return (
+    
+    
     <NavigationContainer>
+      
       <Tab.Navigator>
         <Tab.Screen name="DanhChoBan" component={DanhChoBan} 
         options={{
@@ -23,6 +29,7 @@ export default function App() {
           ),                                                    
         }}
         />
+        
         <Tab.Screen name="KhamPha" component={KhamPha}
         options={{
           tabBarLabel: 'Khám phá',
@@ -31,11 +38,13 @@ export default function App() {
           ),                                                    
         }}
         />
+
+        <Tab.Screen name="Search" component={Search} options={{tabBarVisible: false,}}/>
+
         <Tab.Screen name="Login" component={Login} 
           options={{
           tabBarLabel: 'Live',
           tabBarIcon: ({ focused }) => (
-            // <MaterialCommunityIcons name="live" color={color} size={26} />
             <Image style={styles.icon_live} source={require('./src/img/live-streaming.png')} />
           ),                                                    
         }}
