@@ -1,6 +1,14 @@
 
 import { StyleSheet, Text, View, ScrollView, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
+import Slide from '../screens/Slide'
+
+const images = [
+  { key: 1, image: require('../img/khampha/themaskedsinger.png') },
+  { key: 2, image: require('../img/khampha/hothonhot.png') },
+  { key: 3, image: require('../img/khampha/chamsocem.png') },
+  { key: 4, image: require('../img/khampha/weekend.png') },
+];
 
 const data = [
   {
@@ -728,6 +736,57 @@ const chude = [
   },
 ]
 
+const muagiangsinh = [
+  {
+    image: require('../img/khampha/christmassong.png'),
+    id: 1,
+    title: 'R&B Christmas Songs',
+    singer: 'Mariah Carey, Eartha...'
+  },
+  {
+    image: require('../img/khampha/christmasclassics.png'),
+    id: 2,
+    title: 'Christmas Classics',
+    singer: 'Perry Como, The Font...'
+  },
+  {
+    image: require('../img/khampha/giangsinhamap.png'),
+    id: 3,
+    title: 'Giáng Sinh Ấm Áp',
+    singer: 'Christopher Phillips, B...'
+  },
+  {
+    image: require('../img/khampha/christmasrelax.png'),
+    id: 4,
+    title: 'Christmas Relax',
+    singer: 'Michael Forster, The P...'
+  },
+  {
+    image: require('../img/khampha/acousticchristmas.png'),
+    id: 5,
+    title: 'Acoustic Christmas',
+    singer: 'Birdy, She & Him, Fion...'
+  },
+  {
+    image: require('../img/khampha/christmaspop.png'),
+    id: 6,
+    title: 'Christmas Pop',
+    singer: 'Jennifer Hudson, Mari...'
+  },
+  {
+    image: require('../img/khampha/giangsinhbestsong.png'),
+    id: 7,
+    title: 'Nhạc Giáng Sinh Hay Nhất',
+    singer: 'Mariah Carey, Wham!,...'
+  },
+  {
+    image: require('../img/khampha/merrychristmas.png'),
+    id: 8,
+    title: 'Merry Christmas!',
+    singer: 'Fifth Harmony, Boney...'
+  },
+]
+
 const Item = ({ image1, image2, id }) => {
   return (
     <View style={styles.item}>
@@ -743,7 +802,7 @@ const Item = ({ image1, image2, id }) => {
 
 const Itemchude = ({ image1, image2, id }) => {
   return (
-    <View style={{marginTop: 10}}>
+    <View style={{ marginTop: 10 }}>
       <TouchableOpacity>
         <Image style={{ width: 170, height: 80, borderRadius: 10, resizeMode: 'contain', marginLeft: 10 }} source={image1}></Image>
       </TouchableOpacity>
@@ -973,6 +1032,18 @@ const Itemtiktoktopmix5 = ({ image, id, title, singer }) => {
   )
 }
 
+const Itemmuagiangsinh = ({ image, id, title, singer }) => {
+  return (
+    <View style={styles.item2}>
+      <TouchableOpacity>
+        <Image style={styles.img3} source={image}></Image>
+      </TouchableOpacity>
+      <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 10 }}>{title}</Text>
+      <Text style={{ fontSize: 15, color: 'gray', marginTop: 5 }}>{singer}</Text>
+    </View>
+  )
+}
+
 const KhamPha = () => {
   return (
     <View style={styles.container}>
@@ -986,6 +1057,7 @@ const KhamPha = () => {
         </View>
 
         <View style={styles.body}>
+          <Slide data={images} />
           <ScrollView>
             <FlatList
               data={data}
@@ -1145,7 +1217,12 @@ const KhamPha = () => {
 
           </ScrollView>
 
-          <Text style={{ fontSize: 25, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Nghe Gần Đây</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Nghe Gần Đây</Text>
+            <TouchableOpacity>
+              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 190, }}>Thêm</Text>
+            </TouchableOpacity>
+          </View>
           <ScrollView horizontal={true}>
             <FlatList
               data={ngheganday}
@@ -1156,7 +1233,12 @@ const KhamPha = () => {
             />
           </ScrollView>
 
-          <Text style={{ fontSize: 25, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Vũ Trụ Nhạc Việt</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Vũ Trụ Nhạc Việt</Text>
+            <TouchableOpacity>
+              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 170, }}>Thêm</Text>
+            </TouchableOpacity>
+          </View>
           <ScrollView horizontal={true}>
             <FlatList
               data={vutrunhacviet}
@@ -1167,7 +1249,12 @@ const KhamPha = () => {
             />
           </ScrollView>
 
-          <Text style={{ fontSize: 25, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Tâm Trạng Hôm Nay</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Tâm Trạng Hôm Nay</Text>
+            <TouchableOpacity>
+              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 140, }}>Thêm</Text>
+            </TouchableOpacity>
+          </View>
           <ScrollView horizontal={true}>
             <FlatList
               data={tamtranghomnay}
@@ -1179,9 +1266,9 @@ const KhamPha = () => {
           </ScrollView>
 
           <View style={{ flexDirection: 'row' }}>
-            <Text style={{ fontSize: 25, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>TikTok Top Mix</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>TikTok Top Mix</Text>
             <TouchableOpacity>
-              <Image style={{ width: 50, height: 50, resizeMode: 'contain', marginTop: 10, marginLeft: 140 }} source={require('../img/khampha/ngaunhien.png')}></Image>
+              <Image style={{ width: 50, height: 50, resizeMode: 'contain', marginTop: 10, marginLeft: 180 }} source={require('../img/khampha/ngaunhien.png')}></Image>
             </TouchableOpacity>
           </View>
           <ScrollView horizontal={true}>
@@ -1222,9 +1309,9 @@ const KhamPha = () => {
           </ScrollView>
 
           <View style={{ flexDirection: 'row' }}>
-            <Text style={{ fontSize: 25, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Chủ Đề</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Chủ Đề</Text>
             <TouchableOpacity>
-              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 240, }}>Thêm</Text>
+              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 260, }}>Thêm</Text>
             </TouchableOpacity>
           </View>
 
@@ -1234,6 +1321,22 @@ const KhamPha = () => {
               horizontal={true}
               renderItem={({ item }) => (
                 <Itemchude image1={item.image1} image2={item.image2} id={item.id}></Itemchude>
+              )}
+            />
+          </ScrollView>
+
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Mùa Giáng Sinh</Text>
+            <TouchableOpacity>
+              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 180, }}>Thêm</Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView horizontal={true}>
+            <FlatList
+              data={muagiangsinh}
+              horizontal={true}
+              renderItem={({ item }) => (
+                <Itemmuagiangsinh image={item.image} id={item.id} title={item.title} singer={item.singer}></Itemmuagiangsinh>
               )}
             />
           </ScrollView>
@@ -1284,7 +1387,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   txt: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
     marginLeft: 10,
@@ -1304,7 +1407,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   txtXepHang: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
     marginLeft: 10,
@@ -1317,7 +1420,7 @@ const styles = StyleSheet.create({
     color: 'gray',
     fontSize: 15,
     marginTop: 25,
-    marginLeft: 130,
+    marginLeft: 180,
   },
   trend: {
     width: 310,
