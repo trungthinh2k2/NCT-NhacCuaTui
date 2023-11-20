@@ -686,6 +686,46 @@ const chude = [
     image2: require('../img/khampha/buoitrua.png'),
     id: 5,
   },
+  {
+    image1: require('../img/khampha/vuive.png'),
+    image2: require('../img/khampha/dulich.png'),
+    id: 6,
+  },
+  {
+    image1: require('../img/khampha/tinhban.png'),
+    image2: require('../img/khampha/santruong.png'),
+    id: 7,
+  },
+  {
+    image1: require('../img/khampha/phatgiao.png'),
+    image2: require('../img/khampha/tonthuong.png'),
+    id: 8,
+  },
+  {
+    image1: require('../img/khampha/thattinh.png'),
+    image2: require('../img/khampha/guitar.png'),
+    id: 9,
+  },
+  {
+    image1: require('../img/khampha/giadinh.png'),
+    image2: require('../img/khampha/goicam.png'),
+    id: 10,
+  },
+  {
+    image1: require('../img/khampha/theducnhipdieu.png'),
+    image2: require('../img/khampha/muaha.png'),
+    id: 11,
+  },
+  {
+    image1: require('../img/khampha/chaybo.png'),
+    image2: require('../img/khampha/lofichill.png'),
+    id: 12,
+  },
+  {
+    image1: require('../img/khampha/anime.png'),
+    image2: require('../img/khampha/hoathinh.png'),
+    id: 13,
+  },
 ]
 
 const Item = ({ image1, image2, id }) => {
