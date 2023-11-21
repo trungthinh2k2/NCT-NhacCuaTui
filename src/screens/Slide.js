@@ -21,7 +21,7 @@ const Slide = ({ data }) => {
       const nextSlide = (imgActive + 1) % data.length;
       setImgActive(nextSlide);
       flatListRef.current.scrollToIndex({ index: nextSlide, animated: true });
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [imgActive, data]);

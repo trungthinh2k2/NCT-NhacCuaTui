@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, ScrollView, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Image, TextInput, TouchableOpacity, FlatList, Pressable } from 'react-native'
 import React from 'react'
 import Slide from '../screens/Slide'
 
@@ -787,6 +787,8 @@ const muagiangsinh = [
   },
 ]
 
+
+
 const Item = ({ image1, image2, id }) => {
   return (
     <View style={styles.item}>
@@ -1044,18 +1046,19 @@ const Itemmuagiangsinh = ({ image, id, title, singer }) => {
   )
 }
 
-const KhamPha = () => {
+const KhamPha = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.header}>
-          <Image style={styles.search} source={require('../img/khampha/search.png')}></Image>
+      <View style={styles.header}>
+        <Image style={styles.search} source={require('../img/khampha/search.png')}></Image>
+        <Pressable onPress={() => navigation.navigate('Search')}>
           <TextInput style={styles.textInput} placeholder="Bạn muốn nghe gì ?" placeholderTextColor='gray'></TextInput>
-          <TouchableOpacity>
-            <Image style={styles.mic} source={require('../img/khampha/mic.png')}></Image>
-          </TouchableOpacity>
-        </View>
-
+        </Pressable>
+        <TouchableOpacity>
+          <Image style={styles.mic} source={require('../img/khampha/mic.png')}></Image>
+        </TouchableOpacity>
+      </View>
+      <ScrollView>
         <View style={styles.body}>
           <Slide data={images} />
           <ScrollView>
@@ -1341,6 +1344,13 @@ const KhamPha = () => {
             />
           </ScrollView>
 
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Ngày Nhẹ Nhàng</Text>
+            <TouchableOpacity>
+              <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 180, }}>Thêm</Text>
+            </TouchableOpacity>
+          </View>
+
         </View>
       </ScrollView>
     </View>
@@ -1354,6 +1364,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   header: {
+    height: 50,
     flexDirection: 'row',
   },
   body: {
@@ -1372,7 +1383,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   textInput: {
-    width: '80%',
+    width: 320,
     height: 35,
     borderWidth: 1,
     borderColor: 'gray',
