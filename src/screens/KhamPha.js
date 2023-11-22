@@ -787,7 +787,68 @@ const muagiangsinh = [
   },
 ]
 
-
+const ngaynhenhang = [
+  {
+    image: require('../img/khampha/midnightdrive.png'),
+    id: 1,
+    title: 'Midnight Drive',
+    singer: 'HYBS, Carly Rae Jeps...'
+  },
+  {
+    image: require('../img/khampha/acousticchill.png'),
+    id: 2,
+    title: 'Acoustic Chill',
+    singer: 'SZA, Justin Bieber, No...'
+  },
+  {
+    image: require('../img/khampha/popchill.png'),
+    id: 3,
+    title: 'Pop Chill',
+    singer: 'Billie Eilish, Miley Cyru...'
+  },
+  {
+    image: require('../img/khampha/thisishowfallinlove.png'),
+    id: 4,
+    title: 'This Is How I Fall In Love',
+    singer: 'Johnny Stimson, Lauf...'
+  },
+  {
+    image: require('../img/khampha/lofi&chill.png'),
+    id: 5,
+    title: 'Lofi & Chill',
+    singer: 'Gab5, Fun Intended, L...'
+  },
+  {
+    image: require('../img/khampha/tofeelsad.png'),
+    id: 6,
+    title: 'It\'s Ok To Feel Sad',
+    singer: 'Lanna Del Rey, SYML, d...'
+  },
+  {
+    image: require('../img/khampha/kpoponasunnyday.png'),
+    id: 7,
+    title: 'K-Pop On A Sunny Day',
+    singer: 'PL, Younha, Chamsom'
+  },
+  {
+    image: require('../img/khampha/pianochill.png'),
+    id: 8,
+    title: 'Piano Chill',
+    singer: 'Peter Dickinson, Rasm...'
+  },
+  {
+    image: require('../img/khampha/timelessclassics.png'),
+    id: 9,
+    title: 'Timeless Classics',
+    singer: 'Frank Sinantra, Perry C...'
+  },
+  {
+    image: require('../img/khampha/jazzforlovers.png'),
+    id: 10,
+    title: 'Jazz For Lovers',
+    singer: 'Chet Baker, Duke Ellin...'
+  },
+]
 
 const Item = ({ image1, image2, id }) => {
   return (
@@ -1035,6 +1096,18 @@ const Itemtiktoktopmix5 = ({ image, id, title, singer }) => {
 }
 
 const Itemmuagiangsinh = ({ image, id, title, singer }) => {
+  return (
+    <View style={styles.item2}>
+      <TouchableOpacity>
+        <Image style={styles.img3} source={image}></Image>
+      </TouchableOpacity>
+      <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 10 }}>{title}</Text>
+      <Text style={{ fontSize: 15, color: 'gray', marginTop: 5 }}>{singer}</Text>
+    </View>
+  )
+}
+
+const Itemngaynhenhang = ({ image, id, title, singer }) => {
   return (
     <View style={styles.item2}>
       <TouchableOpacity>
@@ -1350,6 +1423,15 @@ const KhamPha = ({ navigation }) => {
               <Text style={{ color: 'gray', fontSize: 15, marginTop: 25, marginLeft: 180, }}>Thêm</Text>
             </TouchableOpacity>
           </View>
+          <ScrollView horizontal={true}>
+            <FlatList
+              data={ngaynhenhang}
+              horizontal={true}
+              renderItem={({ item }) => (
+                <Itemngaynhenhang image={item.image} id={item.id} title={item.title} singer={item.singer}></Itemngaynhenhang>
+              )}
+            />
+          </ScrollView>
 
         </View>
       </ScrollView>
