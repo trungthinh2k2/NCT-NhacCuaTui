@@ -353,61 +353,63 @@ const Search = ({ navigation }) => {
           <Text style={{ color: 'black', marginTop: 10, marginLeft: 10, fontSize: 15, fontWeight: '500' }}>Hủy</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity>
-        <View style={{ width: 360, height: 70, backgroundColor: '#7ccaee', marginLeft: 15, borderRadius: 10 }}>
-          <Text style={{ color: 'black', fontSize: 17, fontWeight: '600', marginTop: 10, marginLeft: 10 }}>Nhận dạng bài hát</Text>
-          <Text style={{ marginLeft: 10, fontSize: 12 }}>Nhận dạng bất kì bài hát đang phát xung quanh bạn</Text>
-          <Text style={{ marginLeft: 10, fontSize: 12 }}>hoặc từ ứng dụng khác</Text>
-          <Image style={{ width: 50, height: 50, position: 'absolute', right: 10, top: 10 }} source={require('../img/khampha/nhandanggiongnoi.png')}></Image>
-        </View>
-      </TouchableOpacity>
-      <View style={{ flexDirection: 'row' }}>
-        <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Lịch Sử Tìm Kiếm</Text>
+      <ScrollView>
         <TouchableOpacity>
-          <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginTop: 10, marginLeft: 170 }} source={require('../img/khampha/delete.png')}></Image>
+          <View style={{ width: 360, height: 70, backgroundColor: '#7ccaee', marginLeft: 15, borderRadius: 10 }}>
+            <Text style={{ color: 'black', fontSize: 17, fontWeight: '600', marginTop: 10, marginLeft: 10 }}>Nhận dạng bài hát</Text>
+            <Text style={{ marginLeft: 10, fontSize: 12 }}>Nhận dạng bất kì bài hát đang phát xung quanh bạn</Text>
+            <Text style={{ marginLeft: 10, fontSize: 12 }}>hoặc từ ứng dụng khác</Text>
+            <Image style={{ width: 50, height: 50, position: 'absolute', right: 10, top: 10 }} source={require('../img/khampha/nhandanggiongnoi.png')}></Image>
+          </View>
         </TouchableOpacity>
-      </View>
-      <ScrollView horizontal={true}>
-        <View style={{ width: 360, height: 700, backgroundColor: "#abdbe3", marginLeft: 10, marginTop: 10, borderRadius: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray' }}>Nổi Bật</Text>
-          <FlatList
-            data={noibat}
-            renderItem={({ item }) => <ItemNoiBat title={item.title} />}
-            keyExtractor={item => item.id}
-          />
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black', marginLeft: 10, marginTop: 20, }}>Lịch Sử Tìm Kiếm</Text>
+          <TouchableOpacity>
+            <Image style={{ width: 40, height: 40, resizeMode: 'contain', marginTop: 10, marginLeft: 170 }} source={require('../img/khampha/delete.png')}></Image>
+          </TouchableOpacity>
         </View>
-        <View style={{ width: 360, height: 700, backgroundColor: "#98e09b", marginLeft: 10, marginTop: 10, borderRadius: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Trending Music</Text>
-          <FlatList
-            data={trending}
-            renderItem={({ item }) => <ItemTrending image={item.image} title={item.title} singer={item.singer} />}
-            keyExtractor={item => item.id}
-          />
-        </View>
-        <View style={{ width: 360, height: 700, backgroundColor: "#e6e68a", marginLeft: 10, marginTop: 10, borderRadius: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Youtube Trending</Text>
-          <FlatList
-            data={youtubetrending}
-            renderItem={({ item }) => <ItemYoutubeTrending image={item.image} title={item.title} singer={item.singer} />}
-            keyExtractor={item => item.id}
-          />
-        </View>
-        <View style={{ width: 360, height: 700, backgroundColor: "#da9dc9", marginLeft: 10, marginTop: 10, borderRadius: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Korea Melon</Text>
-          <FlatList
-            data={korea}
-            renderItem={({ item }) => <ItemKorea image={item.image} title={item.title} singer={item.singer} />}
-            keyExtractor={item => item.id}
-          />
-        </View>
-        <View style={{ width: 360, height: 700, backgroundColor: "#d4bdbd", marginLeft: 10, marginTop: 10, borderRadius: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Billboard Global</Text>
-          <FlatList
-            data={billboard}
-            renderItem={({ item }) => <ItemBillboard image={item.image} title={item.title} singer={item.singer} />}
-            keyExtractor={item => item.id}
-          />
-        </View>
+        <ScrollView horizontal={true}>
+          <View style={{ width: 360, height: 700, backgroundColor: "#abdbe3", marginLeft: 10, marginTop: 10, borderRadius: 10, marginBottom: 30 }}>
+            <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray' }}>Nổi Bật</Text>
+            <FlatList
+              data={noibat}
+              renderItem={({ item }) => <ItemNoiBat title={item.title} />}
+              keyExtractor={item => item.id}
+            />
+          </View>
+          <View style={{ width: 360, height: 700, backgroundColor: "#98e09b", marginLeft: 10, marginTop: 10, borderRadius: 10, marginBottom: 30 }}>
+            <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Trending Music</Text>
+            <FlatList
+              data={trending}
+              renderItem={({ item }) => <ItemTrending image={item.image} title={item.title} singer={item.singer} />}
+              keyExtractor={item => item.id}
+            />
+          </View>
+          <View style={{ width: 360, height: 700, backgroundColor: "#e6e68a", marginLeft: 10, marginTop: 10, borderRadius: 10, marginBottom: 30 }}>
+            <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Youtube Trending</Text>
+            <FlatList
+              data={youtubetrending}
+              renderItem={({ item }) => <ItemYoutubeTrending image={item.image} title={item.title} singer={item.singer} />}
+              keyExtractor={item => item.id}
+            />
+          </View>
+          <View style={{ width: 360, height: 700, backgroundColor: "#da9dc9", marginLeft: 10, marginTop: 10, borderRadius: 10, marginBottom: 30 }}>
+            <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Korea Melon</Text>
+            <FlatList
+              data={korea}
+              renderItem={({ item }) => <ItemKorea image={item.image} title={item.title} singer={item.singer} />}
+              keyExtractor={item => item.id}
+            />
+          </View>
+          <View style={{ width: 360, height: 700, backgroundColor: "#d4bdbd", marginLeft: 10, marginTop: 10, borderRadius: 10, marginBottom: 30 }}>
+            <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', marginLeft: 10, marginTop: 10, color: 'gray', marginLeft: 10 }}>Billboard Global</Text>
+            <FlatList
+              data={billboard}
+              renderItem={({ item }) => <ItemBillboard image={item.image} title={item.title} singer={item.singer} />}
+              keyExtractor={item => item.id}
+            />
+          </View>
+        </ScrollView>
       </ScrollView>
     </View>
   )

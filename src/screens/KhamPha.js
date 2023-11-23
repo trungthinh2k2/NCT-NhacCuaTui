@@ -1443,14 +1443,14 @@ export default KhamPha
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#ecdcfc',
   },
   header: {
     height: 50,
     flexDirection: 'row',
   },
   body: {
-    backgroundColor: 'white',
+    backgroundColor: '#ecdcfc',
   },
   search: {
     width: 30,
