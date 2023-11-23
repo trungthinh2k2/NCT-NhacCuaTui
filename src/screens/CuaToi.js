@@ -52,6 +52,23 @@ const yeuthich = [
   }
 ]
 
+const addplaylist = [
+  {
+    image: require('../img/cuatoi/addplaylist.png'),
+    title1: 'Thêm playlist',
+    title2: 'Thêm playlist bên ngoài chỉ với 1 bước',
+  }
+]
+
+const createplaylist = [
+  {
+    image: require('../img/cuatoi/create.png'),
+    title1: 'Tạo playlist',
+    title2: 'Tạo playlist của riêng bạn',
+  }
+]
+
+
 const ItemAccount = ({ image, title, number1, following, number2, follower }) => {
   return (
     <View style={{ flexDirection: 'row', marginTop: 5 }}>
@@ -145,7 +162,31 @@ const ItemYeuThich = ({ image, title1, title2 }) => {
   )
 }
 
-const CuaToi = () => {
+const ItemAddPlaylist = ({ image, title1, title2 }) => {
+  return (
+    <TouchableOpacity style={{ flexDirection: 'row', marginTop: 10 }}>
+      <Image style={{ width: 50, height: 50, resizeMode: 'contain', marginLeft: 15, marginTop: 5, borderRadius: 10 }} source={image} />
+      <View style={{ flexDirection: 'column', marginLeft: 15, marginTop: 7 }}>
+        <Text style={{ fontSize: 17, fontWeight: '500' }}>{title1}</Text>
+        <Text style={{ fontSize: 14, color: 'gray' }}>{title2}</Text>
+      </View>
+    </TouchableOpacity>
+  )
+}
+
+const ItemCreatePlaylist = ({ image, title1, title2 }) => {
+  return (
+    <TouchableOpacity style={{ flexDirection: 'row' }}>
+      <Image style={{ width: 50, height: 50, resizeMode: 'contain', marginLeft: 15, marginTop: 5, borderRadius: 10 }} source={image} />
+      <View style={{ flexDirection: 'column', marginLeft: 15, marginTop: 7 }}>
+        <Text style={{ fontSize: 17, fontWeight: '500' }}>{title1}</Text>
+        <Text style={{ fontSize: 14, color: 'gray' }}>{title2}</Text>
+      </View>
+    </TouchableOpacity>
+  )
+}
+
+const CuaToi = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -153,7 +194,7 @@ const CuaToi = () => {
           <TouchableOpacity>
             <Image style={{ width: 25, height: 25, resizeMode: 'contain', marginRight: 10 }} source={require('../img/cuatoi/notify.png')} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Install')}>
             <Image style={{ width: 25, height: 25, resizeMode: 'contain', marginRight: 20 }} source={require('../img/cuatoi/install.png')} />
           </TouchableOpacity>
         </View>
@@ -220,11 +261,45 @@ const CuaToi = () => {
           <Text style={{ fontSize: 18, fontWeight: "600", marginLeft: 30 }}>Platlist Đã Tạo</Text>
           <Text style={{ fontSize: 18, fontWeight: "600", marginLeft: 50 }}>Playlist Yêu Thích</Text>
         </View>
-        <View style={{ width: 370, height: 185, backgroundColor: '#f0ecec', marginTop: 20, borderRadius: 10 }}>
-
+        <View style={{ width: 370, height: 200, backgroundColor: '#f0ecec', marginTop: 20, borderRadius: 10 }}>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 15, marginTop: 20 }}>Playlist Đã Tạo (0)</Text>
+            <TouchableOpacity>
+              <Image style={{ width: 30, height: 30, resizeMode: 'contain', marginTop: 20, marginLeft: 110 }} source={require('../img/cuatoi/createplaylist.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image style={{ width: 30, height: 30, resizeMode: 'contain', marginTop: 18, marginLeft: 5 }} source={require('../img/cuatoi/array.png')} />
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            data={addplaylist}
+            renderItem={({ item }) => <ItemAddPlaylist image={item.image} title1={item.title1} title2={item.title2} />}
+            keyExtractor={item => item.title1}
+          />
+          <FlatList
+            data={createplaylist}
+            renderItem={({ item }) => <ItemCreatePlaylist image={item.image} title1={item.title1} title2={item.title2} />}
+            keyExtractor={item => item.title1}
+          />
         </View>
-        <View style={{ width: 370, height: 250, backgroundColor: '#f0ecec', marginTop: 15, borderRadius: 10, marginBottom: 20}}>
-
+        <View style={{ width: 370, height: 320, backgroundColor: '#f0ecec', marginTop: 15, borderRadius: 10, marginBottom: 50 }}>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 15, marginTop: 20 }}>Playlist Yêu Thích (0)</Text>
+            <TouchableOpacity>
+              <Image style={{ width: 30, height: 30, resizeMode: 'contain', marginTop: 18, marginLeft: 120 }} source={require('../img/cuatoi/array.png')} />
+            </TouchableOpacity>
+          </View>
+          <View style={{ backgroundColor: '#e8e4e4', width: 100, height: 100, marginLeft: 135, borderRadius: 50, marginTop: 30 }}>
+            <Image style={{ width: 30, height: 30, resizeMode: 'contain', position: 'absolute', marginLeft: 35, marginTop: 32 }} source={require('../img/cuatoi/nodata.png')} />
+          </View>
+          <Text style={{ fontSize: 17, fontWeight: '500', marginLeft: 120, marginTop: 10 }}>Không có dữ liệu!</Text>
+          <Text style={{ fontSize: 15, fontWeight: '400', color: 'gray', marginLeft: 30 }}>Hãy khám phá để tìm ra nhưng playlist bạn yêu</Text>
+          <Text style={{ fontSize: 15, fontWeight: '400', color: 'gray', marginLeft: 170 }}>thích</Text>
+          <TouchableOpacity style={{ width: 180, height: 35, backgroundColor: '#e8e4e4', marginLeft: 100, borderRadius: 30, marginTop: 10 }}
+            onPress={() => navigation.navigate('KhamPha')}
+          >
+            <Text style={{ fontSize: 15, fontWeight: '500', color: 'gray', marginLeft: 55, marginTop: 6 }}>Khám phá</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>

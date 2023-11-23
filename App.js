@@ -9,6 +9,7 @@ import DanhChoBan from './src/screens/DanhChoBan';
 import KhamPha from './src/screens/KhamPha';
 import CuaToi from './src/screens/CuaToi';
 import Search from './src/screens/Search';
+import Install from './src/screens/Install';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -19,6 +20,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="MyTab" component={MyTab} options={{ headerShown: false }} />
         <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+        <Stack.Screen name="Install" component={Install} options={{ headerShown: false }} />
       </Stack.Navigator>
 
     </NavigationContainer>

@@ -1,8 +1,6 @@
-import { Image, ScrollView, StyleSheet, Text, View, TextInput, TouchableOpacity, Pressable } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { FlatList } from 'react-native-web'
-// import LinearGradient from 'react-native-linear-gradient';
-// import firestore from '@react-native-firebase/firestore';
 
 const noibat = [
   { title: "1 Gods", id: 1 },
