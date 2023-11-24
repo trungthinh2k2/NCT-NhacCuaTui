@@ -1,78 +1,50 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Pressable } from 'react-native'
-import React, {useEffect, useState}  from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Slider from '@react-native-community/slider';
+import React, {Component, useEffect, useState}  from 'react'
+import Video from 'react-native-video';
 
-function DanhChoBan({navigation}){
+import HeaderDanhChoBan from '../../component/HeaderDanhChoBan';
+import BodyDanhChoBan from '../../component/BodyDanhChoBan';
+import InforSong from '../../component/InforSong';
+import Action from '../../component/Action';
+import { TRACKS } from '../../model/data';
 
+function DanhChoBan({navigation}) {
+    const [pause, setPause] = useState(false);
+  const [selectedTrack, setSelectedTrack] = useState(0);
+
+  const currentTrack = TRACKS[selectedTrack];
+
+  function onPlay() {
+    setPause(false);
+  }
+  function onPause() {
+    setPause(true);
+  }
   return (
-    <View style={styles.contain}>
-        <View style={styles.header}>
-            <Text style={{color:"#ffffff", fontSize: 16, fontWeight: 700, paddingLeft: 16,}}>Dành cho bạn</Text>
-            <View>
-            <TouchableOpacity onPress={()=> navigation.navigate('Search')}>
-                <Image style={styles.icon_search} source={require('../img/danhchoban/icon_search.png')} />
-            </TouchableOpacity>
-            </View>
-            
-           
-        </View>
-        <View style={styles.body}>
-
-        </View>
+    <>
+    <View style={styles.container}>
+        <HeaderDanhChoBan navigation={navigation} />
+        <BodyDanhChoBan url={currentTrack.albumArtUrl} />
         <View style={styles.footer}>
-            <View style={styles.infor_song}>
-
-                
-            </View>
-            <View style={styles.action}>
-                <View style={styles.list_action}>
-                <Image style={styles.icon_action} source={require('../img/danhchoban/heart.png')} />
-                <Image style={styles.icon_action} source={require('../img/danhchoban/comments.png')} />
-                <Image style={styles.icon_action} source={require('../img/danhchoban/share.png')} />
-                <Image style={styles.icon_action} source={require('../img/danhchoban/download.png')} />
-                <TouchableOpacity style={[styles.playBtn, styles.icon_action]}>
-                    <Ionicons name={'ios-play-outline'} size={36} color={'#fff'} />
-                </TouchableOpacity>
-                </View>
-                <View style={styles.process}>
-                <Slider
-                    style={{width: "90%", height: 40, justifyContent: 'center',}}
-                    minimumValue={0}
-                    maximumValue={1}
-                    minimumTrackTintColor="#FFFFFF"
-                    maximumTrackTintColor="#000000"
-                />  
-                </View>
-            </View>
+            <InforSong title={currentTrack.title} artist={currentTrack.artist}/>
+            <Action {...{pause, onPause, onPlay}}/>
         </View>
+        <Video
+          source={{uri: currentTrack.audioUrl}}
+          paused={pause}
+          audioOnly
+          poster={currentTrack.albumArtUrl}
+        />
     </View>
+    </>
   )
 }
 
-export default DanhChoBan
+export default DanhChoBan;
 
 const styles = StyleSheet.create({
-    contain: {
+    container: {
         flex: 1,
-        alignItems: 'center',
-    },
-    header: {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        backgroundColor: '#40495A',
-        alignItems: 'center',
-    },
-    icon_search: {
-        width: 42,
-        height: 42,
-        resizeMode: 'contain',
-    },
-    body: {
-        flex: 6,
-        // backgroundColor: 'blue',
         alignItems: 'center',
     },
     footer: {
@@ -81,54 +53,4 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#40495A',
     },
-    infor_song: {
-        flex: 1,
-        backgroundColor: 'green',
-        width: '100%',
-    },
-    action: {
-        flex: 1,
-        width: '100%',
-    },
-    list_action: {
-        flexDirection: 'row',
-    },
-    icon_action: {
-        width: 30,
-        height: 30,
-        resizeMode: 'contain',
-        margin: 10,
-    },
-    process: {
-        alignItems: 'center',
-    },
-    // playBtn: {
-    //     marginBottom: 30,
-    // },
-    section: {
-        marginBottom: 12
-    },
-    sectionTitle: {
-        color: '#fff',
-        fontSize: 15,
-        fontWeight: "700"
-    },
-    itemContainer: {
-        padding: 8,
-        marginHorizontal: 6,
-        width: 168,
-        height: 200,
-        borderRadius: 4
-    },
-    itemImage: {
-        width: 152,
-        height: 152,
-        borderRadius: 4
-    },
-    itemTitle: {
-        color: '#fff',
-        fontSize: 16,
-        marginTop: 6
-    },
-
 })
