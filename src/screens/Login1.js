@@ -19,12 +19,13 @@ export default function Login1({ navigation }) {
                 placeholderTextColor={'gray'}
             />
 
-            <TouchableOpacity style={{ height: 50, width: 350, backgroundColor: 'blue', borderRadius: 50, marginLeft: 20, marginTop: 10 }}>
+            <TouchableOpacity style={{ height: 50, width: 350, backgroundColor: 'blue', borderRadius: 50, marginLeft: 20, marginTop: 10 }}
+                onPress={() => navigation.navigate('GuiMa')}>
                 <Text style={{ fontSize: 20, fontWeight: '500', color: 'white', marginLeft: 150, marginTop: 10 }}>Gửi mã</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={{ height: 50, width: 350, backgroundColor: 'red', borderRadius: 50, marginLeft: 20, marginTop: 10 }}
-            onPress={() => navigation.navigate('Login')} >
+                onPress={() => navigation.navigate('Login')} >
                 <Text style={{ fontSize: 20, fontWeight: '500', color: 'white', marginLeft: 150, marginTop: 10 }}>Thoát</Text>
             </TouchableOpacity>
 
