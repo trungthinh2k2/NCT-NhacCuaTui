@@ -4,7 +4,6 @@ import React from 'react'
 const BodyDanhChoBan = ({ url}) => {
   return (
     <View style={styles.body}>
-        {/* <Text>Body</Text> */}
         <TouchableOpacity>
             <Image style={styles.image} source={{uri: url}} />
         </TouchableOpacity>
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 400,
-        height: 380,
-        resizeMode: 'contain',
+        height: 400,
+        resizeMode: 'cover',
     }
 })

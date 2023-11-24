@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Pressable } from 'react-native'
 import React, {Component, useEffect, useState}  from 'react'
-import Video from 'react-native-video';
 
 import HeaderDanhChoBan from '../../component/HeaderDanhChoBan';
 import BodyDanhChoBan from '../../component/BodyDanhChoBan';
 import InforSong from '../../component/InforSong';
 import Action from '../../component/Action';
 import { TRACKS } from '../../model/data';
-
+// import Video from 'react-native-video';
 function DanhChoBan({navigation}) {
-    const [pause, setPause] = useState(false);
+  const [pause, setPause] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState(0);
 
   const currentTrack = TRACKS[selectedTrack];
@@ -20,23 +19,27 @@ function DanhChoBan({navigation}) {
   function onPause() {
     setPause(true);
   }
+  
   return (
-    <>
+    
     <View style={styles.container}>
         <HeaderDanhChoBan navigation={navigation} />
+        <View>
+          
+        </View>
         <BodyDanhChoBan url={currentTrack.albumArtUrl} />
         <View style={styles.footer}>
             <InforSong title={currentTrack.title} artist={currentTrack.artist}/>
             <Action {...{pause, onPause, onPlay}}/>
+            
         </View>
-        <Video
+        {/* <Video 
           source={{uri: currentTrack.audioUrl}}
           paused={pause}
-          audioOnly
           poster={currentTrack.albumArtUrl}
-        />
+        /> */}
     </View>
-    </>
+    
   )
 }
 
