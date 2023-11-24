@@ -9,7 +9,7 @@ export default function Login({ navigation }) {
         <Text style={{ fontSize: 50, fontWeight: "bold", color: "#3C92FF", top: -20 }}>NTC</Text>
       </View>
       <View style={styles.body}>
-        <TouchableOpacity style={[styles.btn, styles.btn_phone]} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={[styles.btn, styles.btn_phone]} onPress={() => navigation.navigate('Login1')}>
           <Image style={styles.img_icon} source={require("../img/login/phone.png")} />
           <Text style={styles.text_btn}>Sử dụng số điện thoại</Text>
         </TouchableOpacity>
