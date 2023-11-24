@@ -11,7 +11,7 @@ const noibat = [
   { title: "6 Chịu Cách Mình Nói Thua", id: 6 },
   { title: "7 Hit Me Up", id: 7 },
   { title: "8 Khóa Ly Biệt", id: 8 },
-  { title: "9 ANh Là Ngoại Lệ Của Em", id: 9 },
+  { title: "9 Anh Là Ngoại Lệ Của Em", id: 9 },
   { title: "10 TOKYO Cypher", id: 10 },
   { title: "11 Bạn Đời", id: 11 },
   { title: "12 Ngày Chưa Giông Bão", id: 12 },
