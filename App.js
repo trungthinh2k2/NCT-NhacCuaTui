@@ -11,6 +11,7 @@ import CuaToi from './src/screens/CuaToi';
 import Search from './src/screens/Search';
 import Install from './src/screens/Install';
 import Login1 from './src/screens/Login1';
+import Search2 from './src/screens/Search2';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -33,6 +34,7 @@ export default function App() {
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="MyTab" component={MyTab} options={{ headerShown: false }} />
           <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+          <Stack.Screen name="Search2" component={Search2} options={{ headerShown: false }} />
           <Stack.Screen name="Install" component={Install} options={{ headerShown: false }} />
           <Stack.Screen name="Login1" component={Login1} options={{ headerShown: false }} />
         </Stack.Navigator>
