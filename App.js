@@ -11,35 +11,37 @@ import CuaToi from './src/screens/CuaToi';
 import Search from './src/screens/Search';
 import Install from './src/screens/Install';
 import Login1 from './src/screens/Login1';
-import GuiMa from './src/screens/GuiMa';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
+export const MyContext = React.createContext();
+function MyContextProvider({ children }) {
+  const [user, setUser] = React.useState({});
+  return (
+    <MyContext.Provider value={{ user, setUser }}>
+      {children}
+    </MyContext.Provider>
+  )
+}
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="MyTab" component={MyTab} options={{ headerShown: false }} />
-        <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
-        <Stack.Screen name="Install" component={Install} options={{ headerShown: false }} />
-        <Stack.Screen name="Login1" component={Login1} options={{ headerShown: false }} />
-        <Stack.Screen name="GuiMa" component={GuiMa} options={{ headerShown: false }} />
-      </Stack.Navigator>
-
-    </NavigationContainer>
+    <MyContextProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name="MyTab" component={MyTab} options={{ headerShown: false }} />
+          <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+          <Stack.Screen name="Install" component={Install} options={{ headerShown: false }} />
+          <Stack.Screen name="Login1" component={Login1} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </MyContextProvider>
   );
   function MyTab() {
     return (
       <Tab.Navigator>
-        <Tab.Screen name="Login" component={Login}
-          options={{
-            tabBarLabel: 'Login',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="live" color={color} size={26} />
-            ),
-          }}
-        />
         <Tab.Screen name="DanhChoBan" component={DanhChoBan}
           options={{
             tabBarLabel: 'Dành cho bạn',

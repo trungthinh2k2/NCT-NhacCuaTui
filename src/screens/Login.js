@@ -13,15 +13,15 @@ export default function Login({ navigation }) {
           <Image style={styles.img_icon} source={require("../img/login/phone.png")} />
           <Text style={styles.text_btn}>Sử dụng số điện thoại</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img_icon} source={require("../img/login/logo_facebook.png")} />
           <Text style={styles.text_btn}>Tiếp tục với Facebook</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img_icon} source={require("../img/login/logo_google.png")} />
           <Text style={styles.text_btn}>Tiếp tục với Google</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img_icon} source={require("../img/login/logo_apple.png")} />
           <Text style={styles.text_btn}>Tiếp tục với Apple</Text>
         </TouchableOpacity>
@@ -29,16 +29,16 @@ export default function Login({ navigation }) {
       </View>
       <View style={styles.footer}>
         <Text style={styles.text_policy}>Bằng cách tiếp tục, bạn đồng ý với&nbsp;
-          <TouchableOpacity style={{ fontWeight: 700, }} onPress={() => navigation.navigate('Home')}>
+          <TouchableOpacity style={{ fontWeight: 700, }}>
             <Text>Thỏa thuận Sử dụng &nbsp;</Text>
           </TouchableOpacity>
           <Text>và thừa nhận rằng bạn đã đọc </Text>
-          <TouchableOpacity style={{ fontWeight: 700 }} onPress={() => navigation.navigate('Home')}>
+          <TouchableOpacity style={{ fontWeight: 700 }}>
             <Text>&nbsp;Chính sách bảo mật</Text>
           </TouchableOpacity>
 
         </Text>
-        <TouchableOpacity style={styles.btn_dangnhap} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.btn_dangnhap}>
           <Text style={styles.text_btn_dangnhap}>Đăng nhập với mật khẩu</Text>
         </TouchableOpacity>
       </View>
