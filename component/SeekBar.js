@@ -78,7 +78,7 @@ const styles = StyleSheet.create({});
 //   text: {
 //     color: '#fff',
 //     fontSize: 12,
-//     justifyContent:"space-betweens"
+//     justifyContent: "space-around"
 //   },
 //   slider: {
 //     width: "90%",

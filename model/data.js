@@ -1,4 +1,10 @@
-export const TRACKS = [
+export const songs = [
+  {
+    title: 'Không phải gu',
+    artist: 'HIEUTHUHAI, Bray, Tage',
+    albumArtUrl: 'https://i.ytimg.com/vi/Z7A81KmsPOA/maxresdefault.jpg',
+    audioUrl: require('../src/music/KhongPhaiGu-HIEUTHUHAI-11966359.mp3'),
+  },
   {
     title: 'Despacito',
     artist: 'Drake',
