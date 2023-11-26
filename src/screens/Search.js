@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, View, TextInput, TouchableOpacity, Pressable } from 'react-native'
 import React from 'react'
 import { FlatList } from 'react-native-web'
 
@@ -11,7 +11,7 @@ const noibat = [
   { title: "6 Chịu Cách Mình Nói Thua", id: 6 },
   { title: "7 Hit Me Up", id: 7 },
   { title: "8 Khóa Ly Biệt", id: 8 },
-  { title: "9 ANh Là Ngoại Lệ Của Em", id: 9 },
+  { title: "9 Anh Là Ngoại Lệ Của Em", id: 9 },
   { title: "10 TOKYO Cypher", id: 10 },
   { title: "11 Bạn Đời", id: 11 },
   { title: "12 Ngày Chưa Giông Bão", id: 12 },
@@ -346,7 +346,9 @@ const Search = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.header1}>
         <Image style={styles.search1} source={require('../img/khampha/search.png')}></Image>
-        <TextInput style={styles.textInput1} placeholder="Bạn muốn nghe gì ?" placeholderTextColor='gray'></TextInput>
+        <Pressable onPress={() => navigation.navigate('Search2')} >
+          <TextInput style={styles.textInput1} placeholder="Bạn muốn nghe gì ?" placeholderTextColor='gray'></TextInput>
+        </Pressable>
         <TouchableOpacity onPress={() => navigation.navigate('KhamPha')}>
           <Text style={{ color: 'black', marginTop: 10, marginLeft: 10, fontSize: 15, fontWeight: '500' }}>Hủy</Text>
         </TouchableOpacity>
@@ -432,13 +434,13 @@ const styles = StyleSheet.create({
     top: 10,
   },
   textInput1: {
-    width: '85%',
+    width: 320,
     height: 35,
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 20,
-    paddingLeft: 40,
-    marginLeft: 10,
+    paddingLeft: 35,
+    marginLeft: 20,
     marginTop: 5,
   },
 })
